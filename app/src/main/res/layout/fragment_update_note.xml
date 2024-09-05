@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".UpdateNoteFragment"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="2dp">
+
+            <ImageButton
+                android:id="@+id/btnReturn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/round_button_background"
+                android:contentDescription="@string/return_"
+                android:scaleType="fitXY"
+                android:src="@drawable/baseline_keyboard_arrow_left_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:visibility="visible"
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:text="@string/title"
+                android:textSize="21sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnReturn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/layoutOptions"/>
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/edtSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:autofillHints=""
+                android:background="@null"
+                android:hint="@string/search"
+                android:inputType="text"
+                android:textSize="21sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnReturn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/layoutOptions"/>
+
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/layoutOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <ImageButton
+                    android:visibility="visible"
+                    android:id="@+id/btnRead"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/round_button_background"
+                    android:contentDescription="@string/read_only_mode"
+                    android:src="@drawable/baseline_menu_book_24"
+                    android:layout_marginEnd="10dp"/>
+
+                <ImageButton
+                    android:visibility="visible"
+                    android:id="@+id/btnFind"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/round_button_background"
+                    android:contentDescription="@string/find_in_note"
+                    android:src="@drawable/baseline_search_24"/>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            style="@style/reverseBackgroundColor20"/>
+
+        <EditText
+            android:id="@+id/edtNote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="12dp"
+            android:background="@android:color/transparent"
+            android:gravity="top|start"
+            android:autofillHints=""
+            android:inputType="textMultiLine|textCapSentences" />
+
+    </LinearLayout>
+</layout>

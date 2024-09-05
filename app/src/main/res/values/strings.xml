@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">MyNotes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="show_drawer">Show drawer</string>
+    <string name="add_new_note">Add new note</string>
+    <string name="sort_button">Sort button</string>
+    <string name="search_button">Search button</string>
+    <string name="icon_image">Icon image</string>
+    <string name="return_">Return</string>
+    <string name="title">Title</string>
+    <string name="read_only_mode">Read only mode</string>
+    <string name="mic">Mic</string>
+    <string name="recent_search">Recent search</string>
+    <string name="all_notes">All notes</string>
+    <string name="find_in_note">Find in note</string>
+    <string name="search">Search</string>
 </resources>
