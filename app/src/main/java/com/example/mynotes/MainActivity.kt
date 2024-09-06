@@ -6,11 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.example.mynotes.database.MyDatabase
 import com.example.mynotes.databinding.ActivityMainBinding
+import com.example.mynotes.repository.Repository
+import com.example.mynotes.viewmodel.NoteViewModel
+import com.example.mynotes.viewmodel.NoteViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
+    lateinit var noteViewModel: NoteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,5 +29,9 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val repository = Repository(MyDatabase(this))
+        val viewModelFactory = NoteViewModelFactory(application, repository)
+        noteViewModel = ViewModelProvider(this, viewModelFactory)[NoteViewModel::class.java]
     }
 }
