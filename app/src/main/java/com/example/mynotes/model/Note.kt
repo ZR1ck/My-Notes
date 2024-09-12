@@ -13,5 +13,5 @@ data class Note(
     val body: String,
     val createDate: String,
     val lastUpdate: String,
-    val favourite: Boolean
+    var favourite: Boolean
 ) : Parcelable

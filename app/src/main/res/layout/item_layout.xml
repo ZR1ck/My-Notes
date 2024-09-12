@@ -4,11 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="120dp"
+        android:layout_width="match_parent"
         android:layout_height="250dp"
         android:padding="5dp">
 
         <TextView
+            android:background="@drawable/round_corner_button_background"
             android:id="@+id/tvBody"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -18,8 +19,8 @@
             app:layout_constraintBottom_toTopOf="@+id/layoutTitle"
             android:padding="8dp"
             android:textSize="14sp"
-            tools:ignore="SmallSp"
-            android:text="test">
+            android:textColor="@color/textColor"
+            tools:ignore="SmallSp">
 
 
         </TextView>
@@ -33,17 +34,38 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="4dp"
-                android:textStyle="bold"
-                android:textSize="14sp"
-                android:layout_gravity="center"
+                android:orientation="horizontal"
                 android:gravity="center"
-                android:maxLines="2"
-                android:text="tes\nt"/>
+                android:layout_gravity="center">
+
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:maxWidth="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:textColor="@color/textColor"/>
+
+                <ImageView
+                    android:id="@+id/favourite"
+                    android:visibility="gone"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@string/favourite"
+                    android:src="@drawable/baseline_star_24"
+                    app:tint="@color/favouriteStar" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvDate"
@@ -53,8 +75,8 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:maxLines="1"
-                android:alpha="0.5"
-                android:text="test"/>
+                android:textColor="@color/textColor"
+                android:alpha="0.5"/>
 
         </LinearLayout>
 

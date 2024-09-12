@@ -8,103 +8,118 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".UpdateNoteFragment"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/backgroundColor">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginBottom="2dp">
+            android:layout_height="wrap_content"
+            app:menu="@menu/action_menu"
+            android:id="@+id/toolbar">
 
-            <ImageButton
-                android:id="@+id/btnReturn"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:adjustViewBounds="true"
-                android:background="@drawable/round_button_background"
-                android:contentDescription="@string/return_"
-                android:scaleType="fitXY"
-                android:src="@drawable/baseline_keyboard_arrow_left_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
 
-            <TextView
+                <ImageButton
+                    android:id="@+id/btnReturn"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/round_button_background"
+                    android:contentDescription="@string/return_"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/baseline_keyboard_arrow_left_24"
+                    style="@style/ImageButtonTintStyle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/edtTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:autofillHints=""
+                    android:background="@null"
+                    android:hint="@string/title"
+                    android:inputType="text"
+                    android:textColor="@color/textColor"
+                    android:textSize="21sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnReturn"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutSearch"
                 android:visibility="gone"
-                android:id="@+id/tvTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:text="@string/title"
-                android:textSize="21sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnReturn"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/layoutOptions"/>
-
-            <EditText
-                android:visibility="visible"
-                android:id="@+id/edtTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:autofillHints=""
-                android:background="@null"
-                android:hint="@string/title"
-                android:inputType="text"
-                android:textSize="21sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnReturn"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/layoutOptions"/>
-
-            <LinearLayout
-                android:visibility="visible"
-                android:id="@+id/layoutOptions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
                 <ImageButton
-                    android:visibility="visible"
-                    android:id="@+id/btnRead"
+                    android:id="@+id/btnExit"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    android:adjustViewBounds="true"
                     android:background="@drawable/round_button_background"
-                    android:contentDescription="@string/read_only_mode"
-                    android:src="@drawable/baseline_menu_book_24"
-                    android:layout_marginEnd="10dp"/>
+                    android:contentDescription="@string/exit"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/baseline_keyboard_arrow_left_24"
+                    style="@style/ImageButtonTintStyle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageButton
+                <EditText
+                    android:id="@+id/edtSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:autofillHints=""
+                    android:background="@null"
+                    android:hint="@string/search"
+                    android:inputType="text"
+                    android:textColor="@color/textColor"
+                    android:textSize="21sp"
                     android:visibility="visible"
-                    android:id="@+id/btnOption"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/round_button_background"
-                    android:contentDescription="@string/find_in_note"
-                    android:src="@drawable/baseline_search_24"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnExit"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </com.google.android.material.appbar.MaterialToolbar>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            style="@style/reverseBackgroundColor20"/>
+            android:background="@color/reverseBackgroundColor20"/>
 
-        <EditText
-            android:id="@+id/edtNote"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="12dp"
-            android:background="@android:color/transparent"
-            android:gravity="top|start"
-            android:autofillHints=""
-            android:inputType="textMultiLine|textCapSentences" />
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/edtNote"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="50dp"
+                android:layout_marginHorizontal="18dp"
+                android:background="@android:color/transparent"
+                android:gravity="top|start"
+                android:autofillHints=""
+                android:textColor="@color/textColor"
+                android:inputType="textMultiLine|textCapSentences" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

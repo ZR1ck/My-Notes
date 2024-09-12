@@ -8,7 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutDescription="@xml/fragment_home_xml_constraintlayout_scene"
-        tools:context=".HomeFragment">
+        tools:context=".HomeFragment"
+        android:background="@color/backgroundColor">
 
         <LinearLayout
             android:id="@+id/layoutTitle"
@@ -23,15 +24,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/all_notes"
+                android:text="@string/app_name"
+                android:textColor="@color/textColor"
                 android:textSize="32sp" />
 
             <TextView
                 android:id="@+id/tvNumNote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0 note"
-                android:textSize="16sp" />
+                android:alpha="0.8"
+                android:text=""
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -56,46 +59,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageButton
-                        android:id="@+id/btnDrawer"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/baseline_density_medium_24"
-                        android:background="@drawable/round_button_background"
-                        android:contentDescription="@string/show_drawer"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
 
                     <TextView
                         android:id="@+id/tvTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:textSize="24sp"
+                        android:layout_marginStart="10dp"
                         android:text="@string/all_notes"
-                        app:layout_constraintStart_toEndOf="@+id/btnDrawer"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        android:textColor="@color/textColor"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <LinearLayout
+                        android:id="@+id/linearLayout2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_margin="4dp"
                         android:gravity="center"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        android:layout_margin="4dp">
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageButton
                             android:id="@+id/btnSearch"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:contentDescription="@string/search_button"
                             android:background="@drawable/round_button_background"
+                            android:contentDescription="@string/search"
+                            android:padding="2dp"
                             android:src="@drawable/baseline_search_24"
-                            android:padding="2dp" />
+                            style="@style/ImageButtonTintStyle"/>
 
                     </LinearLayout>
 
@@ -109,36 +105,52 @@
                     android:layout_marginHorizontal="4dp"
                     android:layout_marginBottom="8dp">
 
-                    <ImageView
+                    <LinearLayout
+                        android:id="@+id/dropdown_menu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/icon_image"
-                        android:src="@drawable/baseline_list_24"
-                        android:alpha="0.5"/>
-
-                    <TextView
-                        android:id="@+id/btnSortType"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:layout_marginHorizontal="5dp"
-                        android:alpha="0.5"
-                        android:text="tesafadsft"/>
+                        android:paddingVertical="2dp"
+                        android:paddingHorizontal="7dp"
+                        android:background="@drawable/round_corner_button_background50"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/icon_image"
+                            android:src="@drawable/baseline_list_24"
+                            android:alpha="0.5"
+                            android:clickable="false"
+                            app:tint="@color/reverseBackgroundColor" />
+
+                        <TextView
+                            android:id="@+id/tvType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textColor"
+                            android:alpha="0.5"
+                            android:layout_marginEnd="5dp"/>
+
+                    </LinearLayout>
 
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
                         android:layout_margin="2dp"
-                        style="@style/reverseBackgroundColor"/>
+                        android:background="@color/reverseBackgroundColor"/>
 
                     <ImageButton
                         android:id="@+id/btnSort"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginHorizontal="5dp"
-                        android:contentDescription="@string/sort_button"
+                        android:contentDescription="@string/sort"
                         android:background="@drawable/round_button_background"
                         android:src="@drawable/baseline_arrow_upward_24"
-                        android:alpha="0.5"/>
+                        android:alpha="0.5"
+                        style="@style/ImageButtonTintStyle"/>
 
                 </LinearLayout>
 

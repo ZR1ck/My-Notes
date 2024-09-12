@@ -22,12 +22,12 @@ interface NoteDAO {
     suspend fun delete(note: Note)
 
     //Room automatically handles background threading for LiveData queries so don't need to use suspend.
-    @Query("Select * from Note")
+    @Query("Select * from Note order by DATETIME(lastUpdate) DESC")
     fun getAll() : LiveData<List<Note>>
 
     @RawQuery(observedEntities = [Note::class])
     fun sortBy(query: SupportSQLiteQuery) : LiveData<List<Note>>
 
-    @Query("Select * from Note where title like :query or body like :query")
+    @Query("Select * from Note where title like :query or body like :query order by DATETIME(lastUpdate) DESC")
     fun search(query: String) : LiveData<List<Note>>
 }

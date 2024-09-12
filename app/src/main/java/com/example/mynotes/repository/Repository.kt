@@ -23,13 +23,28 @@ class Repository(private val database: MyDatabase) {
         return database.getNoteDAO().getAll()
     }
 
-    fun sortBy(column: String, asc: Boolean) : LiveData<List<Note>> {
+    fun get(type: Int = 0, asc: Boolean = false) : LiveData<List<Note>> {
+        val column : String = when (type) {
+            0 -> {
+                "DATETIME(lastUpdate)"
+            }
+
+            1 -> {
+                "DATETIME(createDate)"
+            }
+
+            2 -> {
+                "title"
+            }
+
+            else -> "DATETIME(lastUpdate)"
+        }
         val order = if (asc) "ASC" else "DESC"
-        val query = SimpleSQLiteQuery("Select * from Note order by $order")
+        val query = SimpleSQLiteQuery("Select * from Note order by $column $order")
         return database.getNoteDAO().sortBy(query)
     }
 
     fun search(query: String) : LiveData<List<Note>> {
-        return database.getNoteDAO().search(query)
+        return database.getNoteDAO().search("%$query%")
     }
 }

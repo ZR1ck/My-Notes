@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="pressed">#42ffffff</color>
+    <color name="textColor">#FFFFFFFF</color>
+    <color name="backgroundColor">#FF000000</color>
+    <color name="reverseBackgroundColor">#FFFFFFFF</color>
+    <color name="reverseBackgroundColor20">#33FFFFFF</color>
+    <color name="menuIconTint">#FFFFFF</color>
+    <color name="favouriteStar">#CCFFC107</color>
+
+    <color name="test">#00FF00</color>
+</resources>
